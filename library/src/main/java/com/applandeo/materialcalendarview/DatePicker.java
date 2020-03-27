@@ -66,8 +66,12 @@ public class DatePicker {
         final AlertDialog alertdialog = alertBuilder.create();
         alertdialog.setView(view);
 
-        mCancelButton.setOnClickListener(v -> alertdialog.cancel());
-
+        //mCancelButton.setOnClickListener(v -> alertdialog.cancel());
+        mCancelButton.setOnClickListener(v -> {
+            alertdialog.cancel();
+            mCalendarProperties.getOnSelectDateListener().onSelect(null);
+        });
+        
         mOkButton.setOnClickListener(v -> {
             alertdialog.cancel();
             mCalendarProperties.getOnSelectDateListener().onSelect(calendarView.getSelectedDates());
