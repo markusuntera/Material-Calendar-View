@@ -48,6 +48,9 @@ public class DatePicker {
         setDialogButtonsColors();
         mCalendarProperties.setOnSelectionAbilityListener(this::setOkButtonState);
         setOkButtonState(mCalendarProperties.getCalendarType() == CalendarView.ONE_DAY_PICKER);
+        if(mCalendarProperties.getCalendarType() == CalendarView.ONE_DAY_PICKER && mCalendarProperties.getCalendar()!=null){
+            mCalendarProperties.setSelectedDay(mCalendarProperties.getCalendar());
+        }
 
         CalendarView calendarView = new CalendarView(mContext, mCalendarProperties);
 
